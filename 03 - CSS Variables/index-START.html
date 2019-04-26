@@ -18,8 +18,25 @@
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <img src="./demo.jpeg">
+  <script>
+      let inputs = document.querySelectorAll('input')
+      let px = inputs[0].dataset.sizing
+      let img = document.querySelector('img')
+      let color = document.querySelector('#base')
 
+      setImg(inputs[0])
+      function setImg(ele){
+        img.style.border = ele.value+px+' solid '+color.value
+      }
+      inputs.forEach(item=>{
+        item.addEventListener('input',(e)=>{
+          console.log(e)
+          // item.value = e.target.value
+          setImg(item)
+        })
+      })
+    </script>
   <style>
 
     /*
@@ -44,8 +61,7 @@
     }
   </style>
 
-  <script>
-  </script>
+  
 
 </body>
 </html>
